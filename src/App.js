@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import axios from "axios";
+import Icon from "./assets/Icon";
 
 function App() {
+  const [randomAdvice, setRandomAdvice] = useState(
+    'Press the "Get advice" button to hear some wisdom 🔮 '
+  );
+  function fetchAdviceData() {
+    axios.get("https://api.adviceslip.com/advice").then((response) => {
+      setRandomAdvice(response.data.slip.advice);
+    });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{randomAdvice}</h1>
+      <div onClick={fetchAdviceData}>
+        <Icon />
+      </div>
     </div>
   );
 }
