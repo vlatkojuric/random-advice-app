@@ -5,20 +5,24 @@ import Icon from "./assets/Icon";
 
 function App() {
   const [randomAdvice, setRandomAdvice] = useState(
-    'Press the "Get advice" button to hear some wisdom 🔮 '
+    'Press the "Dice" button to hear some wisdom 🔮 '
   );
+  const [randomAdviceId, setRandomAdviceId] = useState("");
+
   function fetchAdviceData() {
     axios.get("https://api.adviceslip.com/advice").then((response) => {
       setRandomAdvice(response.data.slip.advice);
+      setRandomAdviceId(response.data.slip.id);
     });
   }
 
   return (
     <div className="App">
+      <p>Advice #{randomAdviceId}</p>
       <h1>{randomAdvice}</h1>
-      <div onClick={fetchAdviceData}>
+      <button onClick={fetchAdviceData}>
         <Icon />
-      </div>
+      </button>
     </div>
   );
 }
