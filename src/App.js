@@ -18,9 +18,9 @@ function App() {
   return (
     <div className="container">
       {!randomAdvice && (
-        <h1 className="dissapear-text">
+        <p className="dissapear-text">
           Press the "Dice" button to hear some wisdom 🔮
-        </h1>
+        </p>
       )}
       {randomAdvice && <p className="advice-id">Advice #{randomAdviceId}</p>}
       {randomAdvice && <h1 className="random-advice">"{randomAdvice}"</h1>}
