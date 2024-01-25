@@ -5,7 +5,7 @@ import Icon from "./assets/Icon";
 
 function App() {
   const [randomAdvice, setRandomAdvice] = useState(false);
-  // 'Press the "Dice" button to hear some wisdom 🔮 '
+
   const [randomAdviceId, setRandomAdviceId] = useState("");
 
   function fetchAdviceData() {
@@ -19,11 +19,11 @@ function App() {
     <div className="container">
       {!randomAdvice && (
         <h1 className="dissapear-text">
-          Click the dice to get some random advice
+          Press the "Dice" button to hear some wisdom 🔮
         </h1>
       )}
       {randomAdvice && <p className="advice-id">Advice #{randomAdviceId}</p>}
-      <h1 className="random-advice">{randomAdvice}</h1>
+      {randomAdvice && <h1 className="random-advice">"{randomAdvice}"</h1>}
       <button onClick={fetchAdviceData} className="dice-button">
         <Icon />
       </button>
