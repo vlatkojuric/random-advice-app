@@ -27,9 +27,9 @@ function App() {
         {randomAdvice && <h1 className="random-advice">"{randomAdvice}"</h1>}
 
         <div className="flex-span">
-          <span class="line"></span>
-          <span class="vertical-lines"> || </span>
-          <span class="line"></span>
+          <span className="line"></span>
+          <span className="vertical-lines"> || </span>
+          <span className="line"></span>
         </div>
 
         <button onClick={fetchAdviceData} className="dice-button">
