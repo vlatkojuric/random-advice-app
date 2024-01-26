@@ -16,17 +16,26 @@ function App() {
   }
 
   return (
-    <div className="container">
-      {!randomAdvice && (
-        <p className="dissapear-text">
-          Press the "Dice" button to hear some wisdom 🔮
-        </p>
-      )}
-      {randomAdvice && <p className="advice-id">Advice #{randomAdviceId}</p>}
-      {randomAdvice && <h1 className="random-advice">"{randomAdvice}"</h1>}
-      <button onClick={fetchAdviceData} className="dice-button">
-        <Icon />
-      </button>
+    <div className="container-center">
+      <div className="container">
+        {!randomAdvice && (
+          <p className="dissapear-text">
+            Press the "Dice" button to hear some wisdom 🔮
+          </p>
+        )}
+        {randomAdvice && <p className="advice-id">Advice #{randomAdviceId}</p>}
+        {randomAdvice && <h1 className="random-advice">"{randomAdvice}"</h1>}
+
+        <div className="flex-span">
+          <span class="line"></span>
+          <span class="vertical-lines"> || </span>
+          <span class="line"></span>
+        </div>
+
+        <button onClick={fetchAdviceData} className="dice-button">
+          <Icon />
+        </button>
+      </div>
     </div>
   );
 }
